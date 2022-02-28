@@ -1,0 +1,167 @@
+Note that only the first 15 traces are shown
+=== Traces for addr-blocked.ref ===
+Counts:
+ Instructions 24615577
+ Loads        4425078
+ Stores       1241078
+ Modifies     40030
+
+Instructions:
+0x108000,23492322
+0x4c72000,538710
+0x4c71000,440000
+0x4ce9000,140371
+0x4c8d000,761
+0x4cc2000,596
+0x4cc5000,401
+0x4c81000,370
+0x4c8e000,358
+0x4c73000,253
+0x4c89000,176
+0x4cc1000,168
+0x4c80000,163
+0x4c8c000,132
+0x4d49000,120
+Data:
+0x30a000,1083765
+0x5019000,200101
+0x1fff000000,161657
+0x501b000,40033
+0x4070000,40030
+0x501e000,40009
+0x309000,20027
+0x109000,20016
+0x5158000,6662
+0x516b000,6660
+0x517f000,6660
+0x5192000,6660
+0x51a6000,6660
+0x51b9000,6660
+0x51cd000,6660
+unique pages: 993
+Analysis:
+The instruction page that is accessed the most starts at 0x108000. The code stored in this page is probably the for-loops in the function Mat_mult and Mult_add. Other frequent instruction page accesses are at a higher virtual address with pages starting with 0x40.
+The data page that is accessed the most starts at 0x30a000, and it probably stores the global variables.
+
+=== Traces for addr-matmul.ref ===
+Counts:
+ Instructions 24283604
+ Loads        7371149
+ Stores       1170623
+ Modifies     40030
+
+Instructions:
+0x108000,23300797
+0x4c72000,538710
+0x4c71000,440000
+0x4c8d000,752
+0x4cc2000,596
+0x4cc5000,401
+0x4c8e000,361
+0x4c81000,347
+0x4c89000,176
+0x4cc1000,168
+0x4c80000,163
+0x4c73000,136
+0x4c8c000,132
+0x4d49000,120
+0x4cb9000,116
+Data:
+0x30a000,4030209
+0x5019000,200101
+0x1fff000000,160953
+0x501b000,40033
+0x4070000,40029
+0x501e000,40009
+0x108000,20016
+0x309000,20010
+0x5158000,6438
+0x5159000,6432
+0x515a000,6432
+0x515b000,6432
+0x515c000,6432
+0x515d000,6432
+0x515e000,6432
+unique pages: 993
+
+Analysis:
+The instruction page that is accessed the most starts at 0x108000. The code stored in this page is probably the for-loops in Mat_mult. Other frequent instruction page accesses are at a higher virtual address with pages starting with 0x40.
+The data page that is accessed the most starts at 0x30a000, and it probably stores the global variables.
+
+=== Traces for addr-repeatloop.ref ===
+Counts:
+ Instructions 662155
+ Loads        120435
+ Stores       30290
+ Modifies     24
+
+Instructions:
+0x108000,660080
+0x4cc2000,288
+0x4c73000,278
+0x4c86000,190
+0x4c89000,186
+0x4cbc000,163
+0x4c72000,135
+0x4cb9000,135
+0x4c71000,110
+0x4c8a000,108
+0x4cc5000,92
+0x4d60000,71
+0x4cc1000,56
+0x4cac000,53
+0x4cbb000,49
+Data:
+0x402a000,2560
+0x402b000,2560
+0x402c000,2560
+0x402d000,2560
+0x402e000,2560
+0x402f000,2560
+0x4030000,2560
+0x4031000,2560
+0x4032000,2560
+0x4033000,2560
+0x4034000,2560
+0x4035000,2560
+0x4036000,2560
+0x4037000,2560
+0x4038000,2560
+unique pages: 99
+The instruction page that is accessed the most starts at 0x108000. The code stored in this page is probably the repeat for-loops which accumulates acc. Other frequent instruction page accesses are at a higher virtual address with pages starting with 0x40.
+The data pages that is accessed the most all starts at 0x40xx000, and they probably store variables like data[i], acc, r and i, which are accessed repeatedly in the for-loops
+
+=== Traces for addr-simpleloop.ref ===
+Counts:
+ Instructions 120412
+ Loads        50092
+ Stores       10066
+ Modifies     10006
+
+Instructions:
+0x108000,120032
+0x4cc2000,154
+0x4cc5000,118
+0x4cc1000,56
+0x4d49000,40
+0x4cc3000,9
+0x4cc6000,3
+Data:
+0x1fff000000,60104
+0x5019000,28
+0x501f000,10
+0x501b000,7
+0x5018000,6
+0x4070000,4
+0x5020000,4
+0x5021000,4
+0x5022000,4
+0x5023000,4
+0x5024000,4
+0x5025000,4
+0x5026000,4
+0x5027000,4
+0x5028000,4
+unique pages: 2518
+The instruction page that is accessed the most starts at 0x108000. The code stored in this page is probably code for the function heap_loop which contains a for-loop. 
+The data page that is accessed the most all starts at 0x1fff000000, and it probably store the variable i which is accessed repeatedly in the for-loops. All other variables are not accessed very frequently.
